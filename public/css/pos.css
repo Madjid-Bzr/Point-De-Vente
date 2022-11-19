@@ -1,269 +1,425 @@
-/*DGB CSS*/
-.highlighted{
-	background-color: rgb(54, 209, 147);
-	color: #000;
-}
-.filter span{
-	letter-spacing: 2px;
-	font-size: 10px;
-}
-.filter .hid{   /*masquer le prix*/
-	display: none;
-}
-.shop-item-details{
-	margin-top: -25px;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.row{
-	margin-top: 15px !important;
-}
-#enderSearch{
-	margin-bottom: 20px;
-}
 
-/*SAMIA*/
+/* Product Section */
 
-
-.cart-header {
-    font-weight: bold;
-    font-size: 1.25em;
-    color: #333;
+.posContent {
+    display: grid;
+    grid-template-columns: 70% 30%;
 }
 
-.cart-column {
+.products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 100%;
+    height: 80vh;
+    background-color: cadetblue;
+    font-family: "Open Sans", sans-serif;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+#pagin {
+    padding-top: 9px;
+}
+
+.tickets {
+    width: 100%;
+    height: 80vh;
+    margin-left: 5px;
+}
+
+.product-card {
+width: 250px;
+    height: 191px;
+    background: #fff;
+    margin: 1px;
+    padding: 2px 20px 0px 20px;
+    text-transform: uppercase;
+}
+
+.product-card h1 {
+    font-size: 10px;
+    margin-bottom: 2px;
+}
+
+.product-card p {
+    font-size: 6px;
+    color: #3c3d29;
+    margin: 0;
+}
+
+
+/* .product-pic{
+  background-image: url(../img/1.png);
+  width: 100%;
+  height: 50%x;
+  background-size: cover;
+  background-position: center;
+  transition: .6s linear;
+} */
+
+.product-pic2 {
+    width: 100%;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    transition: .6s linear;
+}
+
+.product-pic3 {
+    width: 100%;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    transition: .6s linear;
+}
+
+.product-pic4 {
+    width: 100%;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    transition: .6s linear;
+}
+
+.product-colors {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* .product-colors span{
+  width: 14px;
+  height: 14px;
+  margin: 0 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+} */
+
+
+
+
+
+/* .product-colors .active:after{
+  content: "";
+  width: 22px;
+  height: 22px;
+  border: 2px solid #8888;
+  position: absolute;
+  border-radius: 50%;
+  box-sizing: border-box;
+  left: -4px;
+  top: -4px;
+} */
+
+.product-info {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid black;
-    margin-right: 1.5em;
-    padding-bottom: 10px;
-    margin-top: 10px;
 }
 
-.cart-row {
-    display: flex;
+.product-price {
+    color: #24d1d1;
+    font-size: 15px;
+    font-weight: bolder;
 }
 
-.cart-item {
-    width: 45%;
-}
 
-.cart-price {
-    width: 20%;
-    font-size: 1.2em;
-    color: #333;
-}
 
-.cart-quantity {
-    width: 35%;
-}
-
-.cart-item-title {
-    color: #333;
-    margin-left: .5em;
-    font-size: 1.2em;
-}
-
-.cart-item-image {
-    width: 30px;
-    height: auto;
-    border-radius: 10px;
-}
-
-.btn-danger {
-    color: white;
-    background-color: #EB5757;
-    border: none;
-    border-radius: .3em;
-    font-weight: bold;
-}
-
-.btn-danger:hover {
-    background-color: #CC4C4C;
-}
-
-.cart-quantity-input {
-    height: 34px;
-    width: 50px;
-    border-radius: 5px;
-    border: 1px solid #56CCF2;
-    background-color: #eee;
-    color: #333;
-    padding: 0;
-    text-align: center;
-    font-size: 1.2em;
-    margin-right: 25px;
-}
-
-.cart-row:last-child {
-    border-bottom: 1px solid black;
-}
-
-.cart-row:last-child .cart-column {
-    border: none;
-}
-
-.cart-total {
-    text-align: end;
-    margin-top: 10px;
-    margin-right: 10px;
-}
-
-.cart-total-title {
-    font-weight: bold;
-    font-size: 1.5em;
-    color: black;
-    margin-right: 20px;
-}
-
-.cart-total-price {
-    color: #333;
-    font-size: 1.1em;
-}
-@media print{
-  #print{
-    display: none;
-  }
-
-}
-@media print{
-  .form-group{
-    display: none;
-  }
-
-}
-@media print{
-  .sam{
-    display: none;
-  }
-
-}
-@media print{
-  #myModal{
-    display: none;
-  }
-
+.product-button {
+    margin-left: 200%;
+    margin-top: 4px;
+    background-color: #24d1d1;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid;
+    font-size: 10px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    transition: .0s linear;
+    -webkit-transition: .0s linear;
+    -moz-transition: .0s linear;
+    -ms-transition: .0s linear;
+    -o-transition: .0s linear;
 }
 
 
 
 
+/* Ticket Section */
 
-
-
-
-
-
-
-
-
-
-
-/*YASMINE */
-
-
-
-/* CSS Document */
-.d1{
- margin-left:5%;
- margin-right: 2%;
- margin-top: 0px;
- }
-body{
-background-color:#F5F8FA;
-}	
-
-td{
-height:10px;
+.tickets .section1 {
+    display: table;
+    color: #3c3d29;
+    background: #7ed6df;
+    box-shadow: 0 4px 4px 2px rgba(22, 24, 29, 0.2);
+    font-weight: 800;
+    height: 40px;
+    width: 99%;
+    margin: 0px 0px 2px 2px;
+    border-radius: 3px;
 }
 
-.cat1{
-/* background-image:url(../img/boi.PNG); */
-width:100px; 
-height:100px;
-margin-bottom:20px;
+.tickets .section1 div {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
 }
 
-.marg1{
-margin-left:4%;
-margin-right: 4%;
-margin-bottom: 4%;
-h
-}
-
-/*carte css*/
-    .modal-login {		
-		color: #0B5937;
-		width: 350px;
-	}
-	.modal-login .modal-content {
-		padding: 20px;
-		border-radius: 5px;
-		border: none;
-	}
-	.modal-login .modal-header {
-		border-bottom: none;   
-        position: relative;
-        justify-content: center;
-	}
-	.modal-login h4 {
-		text-align: center;
-		font-size: 26px;
-		margin: 30px 0 -15px;
-	}
-	.modal-login .form-control:focus {
-		border-color: #70c5c0;
-	}
-	.modal-login .form-control, .modal-login .btn {
-		min-height: 40px;
-		border-radius: 3px; 
-	}
-	.modal-login .close {
-        position: absolute;
-		top: -5px;
-		right: -5px;
-	}	
-	.modal-login .modal-footer {
-		background: #ecf0f1;
-		border-color: #dee4e7;
-		text-align: center;
-        justify-content: center;
-		margin: 0 -20px -20px;
-		border-radius: 5px;
-		font-size: 13px;
-	}
-	.modal-login .modal-footer a {
-		color: #0B5937;
-	}		
-	.modal-login .avatar {
-		position: absolute;
-		margin: 0 auto;
-		left: 0;
-		right: 0;
-		top: -70px;
-		width: 95px;
-		height: 95px;
-		
-		z-index: 9;
-		background: #808080;
-		padding: 15px;
-		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-	}
-	.modal-login .avatar img {
-		width: 100%;
-	}
-	.modal-login.modal-dialog {
-		margin-top: 80px;
-	}
-    .modal-login .btn {
-        color: #fff;
-        border-radius: 4px;
-		background: #09CC50;
-		text-decoration: none;
-		transition: all 0.4s;
-        line-height: normal;
-        border: none;
+@media (min-width: 50rem) {
+    .tickets .promo {
+        min-height: 0;
+        text-align: center;
     }
-	.modal-login .btn:hover, .modal-login .btn:focus {
-		background: #45aba6;
-		outline: none;
-	}
+}
+
+.tickets .cart {
+    grid-area: content;
+}
+
+.tickets .section2 {
+    overflow: auto;
+    height: 78.8%;
+    width: auto;
+    color: #fff;
+    background: #414758;
+    box-shadow: 0 4px 4px 2px rgba(22, 24, 29, 0.2);
+    border-radius: 3px;
+    padding: 1rem;
+    margin-bottom: 2px;
+}
+
+.tickets section {
+    min-height: 3rem;
+}
+
+.tickets ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tickets .cart .item {
+    display: grid;
+    grid-template-columns: 30px 100px 50px 40px 30px;
+    justify-content: space-between;
+    font-family: monospace;
+    text-align: center;
+    font-size: 10px;
+}
+
+.tickets .cart .item div {
+    no-border-top: 1px solid white;
+    height: 30px;
+}
+
+.tickets .cart .item .divName {
+    display: table;
+}
+
+.tickets .cart .name {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 10px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.tickets .cart .item .priceName {
+    display: table;
+}
+
+.tickets .cart .price {
+    display: table-cell;
+    vertical-align: middle;
+    font-family: monospace;
+    margin: 0;
+}
+
+.tickets .cart .item .image {
+    width: 40px;
+    height: 30px;
+}
+
+.tickets .cart .item .image>img {
+    width: 100%;
+    height: 100%;
+    padding: 3px;
+    background: white;
+    border-radius: 2px;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4);
+    a-border: 1px solid black;
+}
+
+.tickets .cart .item:not(:last-child) {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px dotted #60709f;
+}
+
+.tickets .section2 .qttDuProd input {
+    width: 40px;
+    height: 25px;
+    margin-top: 3px;
+    padding: 3px;
+    border-radius: 10%;
+    -webkit-border-radius: 10%;
+    -moz-border-radius: 10%;
+    -ms-border-radius: 10%;
+    -o-border-radius: 10%;
+}
+
+@media (min-width: 50rem) {
+    .tickets .cart {
+        padding: 1rem 1rem;
+    }
+    .tickets .cart .name,
+    .tickets .cart .price {
+        font-size: 14px;
+    }
+    .tickets .cart .item:not(:last-child) {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+.tickets .summary {
+    display: flex;
+    box-shadow: 0 4px 4px 2px rgba(22, 24, 29, 0.2);
+    font-size: 14px;
+    color: #fff;
+    background: #5c527a;
+    border-radius: 3px;
+}
+
+.tickets .summary .total {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 100%;
+    font-family: monospace;
+    text-align: right;
+}
+
+.tickets .summary .total .items {
+    /* display: flex;*/
+    justify-content: first baseline;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+}
+
+.tickets .summary .totalNom {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.tickets .summary .totalPrix {
+    text-align: end;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.tickets .section3 {
+    display: table;
+    color: #fff;
+    font-weight: 800;
+    height: 40px;
+    width: 99%;
+    padding: 5px;
+}
+
+
+
+
+
+/*-----------------------------------------Thèmes--------------------------------------*/
+/* theme 1 (Green) */
+.black .products {
+    background-color: #f3b65b;
+}
+
+.purple .products {
+    background-color: rgb(240, 141, 123);
+}
+
+.green .products {
+    background-color: #FFEE58;
+}
+.blue {
+    background: #7ed6df;
+}
+
+.yellow {
+    background: #f9ca24;
+}
+
+.rose {
+    background: #ff7979;
+}
+
+.black .product-price {
+    color: #174b75;
+}
+
+.purple .product-price {
+    color: #be1558;
+}
+
+.green .product-price {
+    color: #212121;
+}
+.red .product-price {
+    color: #16a085;
+}
+
+
+
+
+.black .product-button {
+    background-color: #174b75;
+}
+
+.purple .product-button {
+    background-color: #FFA07A;
+}
+
+.green .product-button {
+    background-color: #212121;
+}
+.red .product-button {
+    background-color: #16a085;
+}
+
+.product-button:hover {
+    transform: scale(1.06);
+    color: #7ed6df;
+    background-color: #fff;
+    text-decoration: none;
+}
+
+.black .product-button:hover {
+    color: #fd9644;
+}
+
+.purple .product-button:hover {
+    color: #be1558;
+}
+
+.green .product-button:hover {
+    color: #FF8C00;
+}
+.red .product-button:hover {
+    color: #09b83e;
+}
+

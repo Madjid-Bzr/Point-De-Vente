@@ -1,71 +1,79 @@
-const express = require("express");
+const express = require('express');
 const exphbs = require("express-handlebars");
-const bodyParser = require("body-parser");
-const session = require("express-session");
-const flash = require("connect-flash");
-const passport = require("passport");
-const app = new express();
-const routes = require('./routes/handlers');
-const routesUser = require("./routes/users");
-const methodOverride = require("method-override");
-
-const port = 8000;
+const bodyParser = require('body-parser'); //pour extraire les données taper dans les formulaires
+const session = require('express-session'); //affichage de msg à l'utilisateur
+const flash = require('connect-flash'); //     idem
+const passport = require('passport');
+const passportSetup = require('./config/passport');
+var CookieSession = require('cookie-session'); // Charge le middleware de sessions
 
 
-//body parser
-//configure session and flash
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(methodOverride("_method"));
+
+const app = express();
+
+//modules static
+app.use(express.static('public')); //add our css js and images
+app.use(express.static('uploads')); //add les image tèlécharger l'utilisateur 
+app.use(express.static('node_modules')); //add bootstrap and jquery ( installed)
 
 
-app.use(
-  session({
-    secret: "secret",
-    resave: true,
-    saveUninitialized: true
-  })
-);
-// incude passpor
-require("./config/passport");
-// add passport
+// create a view enginge (ejs)
+app.set('view engine', 'ejs');
+
+
+
+
+//Bring body-parser
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+    // parse application/json
+app.use(bodyParser.json())
+
+
+
+// Configuration Session et flash
+app.use(session({
+    secret: 'Dgb',
+    resave: false,
+    saveUninitialized: false,
+    // cookie: {maxAge: 60000*15} //la session peut etreactive tt se temps
+}))
+
+/* S'il n'y a pas de todolist dans la session,
+on en crée une vide sous forme d'array avant la suite */
+.use(function(req, res, next) {
+    if (typeof(req.session.ticketList) == 'undefined') {
+        req.session.ticketList = [];
+        req.session.ticketSubTotal = 0;
+        req.session.ticketItem = 0;
+        req.session.ticketTotal = 0;
+        req.session.remisePrcentage = 0;
+        req.session.remisePoint = 0
+    }
+    next();
+})
+
+
+
+
+app.use(flash());
+
+// bring passport 
 app.use(passport.initialize());
 app.use(passport.session());
-//configure passport
-app.use(flash());
-// add middleware for flash messages
 
-app.use((req, res, next) => {
-  res.locals.successMessage = req.flash("successMessage");
-  res.locals.errorMessage = req.flash("errorMessage");
-  res.locals.error = req.flash("error");
+app.get('*', (req, res, next) => {
+    res.locals.user = req.user || null
+    next()
+})
 
-  if (req.user) {
-    res.locals.user = req.user;
-  }
-  next();
-});
+//Routes
+var events = require('./routes/handlers');
+app.use('/', events);
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+//connection to bdd 
+const db = require('./config/database');
 
-
-app.use(express.static('public'));
-
-// create a view enginge
-app.engine(
-    "handlebars",
-    exphbs({
-      defaultLayout: null ,
-    })
-);
-app.set("view engine", "handlebars");
-
-
-app.use('/', routes);
-app.use("/users", routesUser);
-
-
-app.listen(port, () => {
-    console.log(` The server started at port ${port} `);
+app.listen(3001, '0.0.0.0', function() {
+    console.log('Example app listening on port 3001!')
 });

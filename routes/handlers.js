@@ -1,36 +1,24 @@
-const express = require("express");
-const router = express.Router();
+const express = require('express');
+var router = express.Router();
 
 
-const orm = require("../config/orm");
+var users = require('../routes/users');
+var product = require('../routes/product');
+var dashboar = require('../routes/dashboard');
+var client = require('../routes/client');
+var pos = require('../routes/pos');
+var stock = require('../routes/stock');
+var cat = require('../routes/categorie');
+var test = require('../routes/test');
 
-const { isAuthenticated } = require("../config/auth");
+router.use('/', users);
 
-//const { isAuthenticated } = require("../config/auth");
-
-//Routing 
-router.get('/', (req,res)=>{
-    res.render('home',{
-         title: 'Home Page',
-         style:'home.css'
-    });
-});
-
-
-router.get("/dashboard",isAuthenticated, function (req, res) {
-    orm.selectAll( function (error, produit) {
-        if (error) {
-            return res.status(501).json({
-              message: 'Note able to query the database'  
-            });
-        }
-
-        res.render("dashboard", {
-            produit
-        });
-    });
-});
-
-
+router.use('/product', product);
+router.use('/dashboard', dashboar);
+router.use('/client', client);
+router.use('/pos', pos);
+router.use('/categorie', cat);
+router.use('/stock', stock);
+router.use('/test', test);
 
 module.exports = router;
